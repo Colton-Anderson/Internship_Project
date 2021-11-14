@@ -18,7 +18,6 @@ public class DataWriter extends DataConstants {
         /**
          * variables
          */
-        ArrayList<Admin> admins = UserList.getInstance().getAdmins();
         JSONArray jsonUsers  = new JSONArray();
 
         /**
@@ -33,11 +32,6 @@ public class DataWriter extends DataConstants {
             else if(user.getType().equalsIgnoreCase("e")) {
                 if(!jsonUsers.contains(getEmployerJSON(user, employers))) {
                     jsonUsers.add(getEmployerJSON(user, employers));
-                }
-            }
-            else if(user.getType().equalsIgnoreCase("a")) {
-                if(!jsonUsers.contains(getAdmin(user, admins))) {
-                    jsonUsers.add(getAdminJSON(user, admins));
                 }
             }
 
@@ -147,20 +141,6 @@ public class DataWriter extends DataConstants {
         for(int i=0;i<employers.size();i++) {
             if(employers.get(i).getUUID().equalsIgnoreCase(user.getUUID())) {
                 return employers.get(i);
-            }
-        }
-        return null;
-    }
-
-    /**
-     * gets instance of an admin given a user
-     * @param user a user
-     * @return an admin
-     */
-    private static Admin getAdmin(User user, ArrayList<Admin> admins) {
-        for(int i=0;i<admins.size();i++) {
-            if(admins.get(i).getUUID().equalsIgnoreCase(user.getUUID())) {
-                return admins.get(i);
             }
         }
         return null;
@@ -318,20 +298,5 @@ public class DataWriter extends DataConstants {
             reviewsJSON.add(reviewJSON);
         }
         return reviewsJSON;
-    }
-
-    /**
-     * makes JSONObject of admin given a user
-     * @param user a user
-     * @return JSONObject of admin
-     */
-    private static JSONObject getAdminJSON(User user, ArrayList<Admin> admins) {
-        JSONObject adminJSON = new JSONObject();
-        Admin admin = getAdmin(user, admins);
-        adminJSON.put(USER_USERNAME, admin.getUsername().toString());
-        adminJSON.put(USER_PASSWORD, admin.getPassword().toString());
-        adminJSON.put(USER_TYPE, admin.getType().toString());
-        adminJSON.put(USER_UUID, admin.getUUID().toString());
-        return adminJSON;
     }
 }

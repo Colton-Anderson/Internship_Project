@@ -9,7 +9,6 @@ public class UserList {
     private static ArrayList<User> users;
     private static ArrayList<Student> students;
     private static ArrayList<Employer> employers;
-    private static ArrayList<Admin> admins;
 
     /**
      * Constructor
@@ -23,7 +22,6 @@ public class UserList {
         }
         students = setStudents();
         employers = setEmployers();
-        admins = setAdmins();
     }
 
     /**
@@ -55,24 +53,13 @@ public class UserList {
     }
 
     private void setEmployerListings(ArrayList<Employer> aemployers) {
-        for(JobListing listing : DataLoader.getJobListings()) {
+        for(JobListing listing : JobListingsList.getInstance().getJobListings()) {
             for(Employer employer : aemployers) {
                 if(listing.getEmployerID().equalsIgnoreCase(employer.getUUID())) {
                     employer.addListing(listing);
                 }
             }
         }
-    }
-
-    /**
-     * loads the admin from the json files
-     * @return admin
-     */
-    private ArrayList<Admin> setAdmins() {
-        if(DataLoader.getAdmins() == null) {
-            return new ArrayList<Admin>();
-        }
-        return DataLoader.getAdmins();
     }
 
     /**
@@ -163,10 +150,6 @@ public class UserList {
 
     public ArrayList<Employer> getEmployers() {
         return employers;
-    }
-
-    public ArrayList<Admin> getAdmins() {
-        return admins;
     }
 
     /**

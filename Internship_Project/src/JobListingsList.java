@@ -101,19 +101,6 @@ public class JobListingsList {
     }
 
     /**
-     * checks if a keword is within a string
-     * @param string
-     * @param keyWord
-     * @return
-     */
-    public boolean containsString(String string, String keyWord) {
-        if(string.contains(keyWord)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
      * Deletes the job Listing from the list
      */
     public void deleteListing(JobListing jobListing) {

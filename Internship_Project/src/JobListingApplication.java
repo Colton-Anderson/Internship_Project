@@ -226,21 +226,6 @@ public class JobListingApplication {
     }
 
     /**
-     * returns the admin when the user ID matches
-     * @param user
-     * @return
-     */
-    public Admin loginAdmin(User user) {
-        ArrayList<Admin> admins = users.getAdmins();
-        for(Admin admin : admins) {
-            if(user.getUUID() == admin.getUUID()) {
-                return admin;
-            }
-        }
-        return null;
-    }
-
-    /**
      * calls the search listings method with the keyword perameter
      * @param keyword
      * @return

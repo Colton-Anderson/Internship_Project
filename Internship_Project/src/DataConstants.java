@@ -1,6 +1,6 @@
 public class DataConstants {
 
-    protected static final String USER_FILE_NAME = "users.json";
+    protected static final String USER_FILE_NAME = "src/users.json";
     protected static final String USER_USERNAME = "username";
     protected static final String USER_PASSWORD = "password";
     protected static final String USER_TYPE = "type";
@@ -34,7 +34,7 @@ public class DataConstants {
     protected static final String EMPLOYER_LOCATION = "companyLocation";
     protected static final String EMPLOYER_RATING = "companyRating";
 
-    protected static final String LISTING_FILE_NAME = "listings.json";
+    protected static final String LISTING_FILE_NAME = "src/listings.json";
     protected static final String JOB_LISTING_ID = "id";
     protected static final String JOB_LISTING_TITLE = "title";
     protected static final String JOB_POSTED_DATE = "postedDate";

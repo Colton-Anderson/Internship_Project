@@ -33,4 +33,5 @@ public class JobListingTest {
         assertEquals(1, listing.getDesiredSkills().size());
     }
     
+
 }

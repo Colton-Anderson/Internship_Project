@@ -32,6 +32,6 @@ class UsetTest {
     @Test
     public void testToString() {
         User user1 = new User("nusername", "pass", "123456");
-        assertEquals("Username nusername" + "\nPassword pass" + "\nuUID 123456", user1.toString());
+        assertEquals("Usernamenusername" + "\nPasswordpass" + "\nuUID" + user1.getUUID(), user1.toString());
     }
 }

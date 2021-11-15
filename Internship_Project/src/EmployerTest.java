@@ -1,5 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.jupiter.api.AfterEach;
@@ -9,7 +11,7 @@ import org.junit.jupiter.api.Test;
 class EmployerTest {
 
     private Employer employer;
-    private UserList userList = userList.getInstance();
+    private UserList userList = UserList.getInstance();
     private ArrayList<Employer> employerList = userList.setEmployers();
 
     @BeforeEach
@@ -22,7 +24,7 @@ class EmployerTest {
         employerList.getInstance().getUsers().clear();
     }
 
-    @Test
+    @test
     public void testEditAccount() {
         employer.editAccount("new","new","new", "new", "new");
         assertTrue()

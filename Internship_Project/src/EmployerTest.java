@@ -12,7 +12,7 @@ class EmployerTest {
 
     private Employer employer;
     private UserList userList = UserList.getInstance();
-    private ArrayList<Employer> employerList = userList.setEmployers();
+    private ArrayList<Employer> employerList = userList.getEmployers();
 
     @BeforeEach
     public void setup() {
@@ -20,34 +20,34 @@ class EmployerTest {
     }
 
     @AfterEach
-    publci void tearDown() {
+    public void tearDown() {
         employerList.getInstance().getUsers().clear();
     }
 
-    @test
+    @Test
     public void testEditAccount() {
-        employer.editAccount("new","new","new", "new", "new");
-        assertTrue()
+        employer.editAccount("new","new","new", "new", "new", 10);
+        assertEquals("new",employer.getCompanyName());
     }
 
     @Test
     public void testAddListingPositive() {
-        employer.addListing(new Listing("id","title","post","expire","location", 10, "ID"));
+        employer.addListing(new JobListing("id","title","post","expire","location", 10, "ID"));
         assertTrue(employer.getCompanyListings().size() > 0);
     }
 
     @Test
     public void testAddListingNegative() {
-        employer.addListing(new Listing("id","title","post","expire","location", -10, "ID"));
+        employer.addListing(new JobListing("id","title","post","expire","location", -10, "ID"));
         assertTrue(employer.getCompanyListings().size() > 0);
     }
 
     @Test
     public void testRemoveListing() {
-        Listing listing = new Listing("new", "new", "new", "new", "new", 10, "new");
+        JobListing listing = new JobListing("new", "new", "new", "new", "new", 10, "new");
         employer.addListing(listing);
         employer.removeListing(listing);
-        assertTrue(employer.getCompanyListings().size() == 0);
+        assertEquals(0, employer.getCompanyListings().size());
     }
 
 }

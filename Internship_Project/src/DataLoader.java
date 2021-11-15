@@ -16,14 +16,12 @@ public class DataLoader extends DataConstants{
 	 */
 	private static ArrayList<Student> students = new ArrayList<Student>();
 	private static ArrayList<Employer> employers = new ArrayList<Employer>();
-	private static ArrayList<Admin> admins = new ArrayList<Admin>();
 
 	/**
 	 * gets arraylist of users
 	 * @return arraylist of users
 	 */
     public static ArrayList<User> getUsers() {
-        ArrayList<User> users = new ArrayList<User>();
 
         try {
 			/**
@@ -32,6 +30,7 @@ public class DataLoader extends DataConstants{
 			FileReader reader = new FileReader(USER_FILE_NAME);
 			JSONParser parser = new JSONParser();
 			JSONArray peopleJSON = (JSONArray)parser.parse(reader);
+			ArrayList<User> users = new ArrayList<User>();
 
 			/**
 			 * iterates over array and add users to list 
@@ -60,14 +59,6 @@ public class DataLoader extends DataConstants{
 					users.add(employer);
 					employers.add(employer);
 				}
-				/**
-				 * adds admin to user list
-				 */
-				else if(userType.equalsIgnoreCase("a")) {
-					Admin admin = new Admin(username, password, uUID);
-					users.add(admin);
-					admins.add(admin);
-				}
 			}
 			return users;
 
@@ -92,14 +83,6 @@ public class DataLoader extends DataConstants{
 	 */
 	public static ArrayList<Employer> getEmployers() {
 		return employers;
-	}
-
-	/**
-	 * return admins
-	 * @return admins
-	 */
-	public static ArrayList<Admin> getAdmins() {
-		return admins;
 	}
 
 	/**

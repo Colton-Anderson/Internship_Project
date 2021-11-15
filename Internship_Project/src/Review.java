@@ -50,18 +50,4 @@ public class Review {
         return this.review;
     }
 
-    /**
-     * adds a reveiw
-     */
-    public void addReview() {
-
-    }
-
-    /**
-     * removes a reveiw
-     * @param review
-     */
-    public void remove(Review review) {
-        
-    } 
 }

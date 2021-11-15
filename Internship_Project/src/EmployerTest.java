@@ -21,7 +21,7 @@ class EmployerTest {
 
     @AfterEach
     public void tearDown() {
-        employerList.getInstance().getUsers().clear();
+        //employerList.getInstance().getUsers().clear();
     }
 
     @Test
